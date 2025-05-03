@@ -1,6 +1,7 @@
 package com.example.JobAppRest.repo;
 
 import com.example.JobAppRest.model.JobPost;
+import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.stereotype.Repository;
 
 import java.util.ArrayList;
@@ -8,7 +9,7 @@ import java.util.Arrays;
 import java.util.List;
 
 @Repository
-public class JobRepo {
+public interface JobRepo extends JpaRepository<JobPost, Integer> {
 
     List<JobPost> jobs = new ArrayList<>(Arrays.asList(
 
@@ -32,7 +33,9 @@ public class JobRepo {
                     List.of("iOS Development", "Android Development", "Mobile App"))
     ));
 
-    public List<JobPost> getAllJobs(){
+}
+
+    /*public List<JobPost> getAllJobs(){
         return jobs;
     }
 
@@ -69,5 +72,4 @@ public class JobRepo {
                 jobs.remove(job);
             }
         }
-    }
-}
+    }*/
